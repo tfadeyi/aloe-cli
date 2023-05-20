@@ -35,16 +35,11 @@ func specGenerateCmd() *cobra.Command {
 		RunE: func(cmd *cobra.Command, args []string) error {
 			logger := logging.LoggerFromContext(cmd.Context())
 			source := args[0]
-			//output := specoptions.defaultOutputFile
-			//if len(args) == 2 {
-			//	// the output file path was passed
-			//	output = args[1]
-			//}
 
-			// @aloe code clean_artifacts_error
-			// @aloe title Error Removing Previous Artifacts
-			// @aloe summary The tool has failed to delete the artifacts from the previous execution.
-			// @aloe details The tool has failed to delete the artifacts from the previous execution.
+			// @aloe code clean_artefacts_error
+			// @aloe title Error Removing Previous Artefacts
+			// @aloe summary The tool has failed to delete the artefacts from the previous execution.
+			// @aloe details The tool has failed to delete the artefacts from the previous execution.
 			// Try manually deleting them before running the tool again.
 
 			goparser := golang.New(logger, source, opts.IncludedDirs...)
@@ -52,10 +47,6 @@ func specGenerateCmd() *cobra.Command {
 			if err != nil {
 				return err
 			}
-			//wr, err := outputWriter(opts.StdOutput)
-			//if err != nil {
-			//	return err
-			//}
 
 			return generate.WriteSpecification(app, opts.StdOutput, opts.Formats...)
 		},
@@ -65,7 +56,6 @@ func specGenerateCmd() *cobra.Command {
 }
 
 func specValidateCmd() *cobra.Command {
-	opts := specoptions.New()
 	cmd := &cobra.Command{
 		Use:           "validate",
 		Short:         "Validates a given aloe specification",
@@ -83,7 +73,6 @@ func specValidateCmd() *cobra.Command {
 			return errhandler.DefaultOrDie().Error(errors.New("not implemented"), "validate_not_implemented")
 		},
 	}
-	opts = opts.Prepare(cmd)
 	return cmd
 }
 

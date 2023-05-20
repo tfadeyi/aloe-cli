@@ -12,8 +12,8 @@ import (
 	"github.com/juju/errors"
 	"github.com/tfadeyi/aloe-cli/internal/logging"
 	"github.com/tfadeyi/aloe-cli/internal/parser/golang/grammar"
-	"github.com/tfadeyi/go-aloe/pkg/api"
 	errhandler "github.com/tfadeyi/go-aloe"
+	"github.com/tfadeyi/go-aloe/pkg/api"
 )
 
 type Parser struct {
@@ -29,7 +29,7 @@ func New(logger logging.Logger, source string, dirs ...string) *Parser {
 	pkgs := map[string]*ast.Package{}
 	for _, dir := range dirs {
 		if _, err := os.Stat(dir); errors.Is(err, os.ErrNotExist) {
-			//skip if dir doesn't exists
+			// skip if dir doesn't exists
 			continue
 		}
 
@@ -44,7 +44,6 @@ func New(logger logging.Logger, source string, dirs ...string) *Parser {
 				pkgs[pkgName] = pkg
 			}
 		}
-
 	}
 
 	return &Parser{
@@ -91,12 +90,12 @@ func (p Parser) Parse() (*api.Application, error) {
 	// collect application for the given source file
 	f, err := getFile(p.GeneralInfoSource)
 	if err != nil {
-		//@aloe code parsing_golang_error
-		//@aloe title parsing_golang_error
-		//@aloe summary there was an error parsing the application source file
-		//@aloe details The parser was processing the source file when it encountered an error
-		//This could be because the file doesn't exist or the file not being a golang source file
-		//Make sure the file is a golang source file
+		// @aloe code parsing_golang_error
+		// @aloe title parsing_golang_error
+		// @aloe summary there was an error parsing the application source file
+		// @aloe details The parser was processing the source file when it encountered an error
+		// This could be because the file doesn't exist or the file not being a golang source file
+		// Make sure the file is a golang source file
 
 		return nil, errhandler.DefaultOrDie().Error(err, "parsing_golang_error")
 	}

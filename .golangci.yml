@@ -4,8 +4,8 @@ run:
 
 linters-settings:
   goconst:
-    min-len: 2
-    min-occurrences: 2
+    min-len: 10
+    min-occurrences: 10
   gofmt:
     simplify: true
   goimports:

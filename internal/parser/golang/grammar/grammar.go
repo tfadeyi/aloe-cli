@@ -17,7 +17,7 @@ type (
 		Stmts []*attribute `@@*`
 	}
 	attribute struct {
-		Key   string `Aloe Whitespace* @Keyword`
+		Key   string `Aloe Whitespace* @("name"|"title"|"description"|"url"|"version"|"summary"|"details"|"code")`
 		Value string `Whitespace* @(String (Whitespace|EOL)*)+`
 	}
 )
@@ -58,7 +58,6 @@ func (g InfoGrammar) getAttribute(attribute string) (string, bool) {
 
 var lexerDefinition = lexer.MustSimple([]lexer.SimpleRule{
 	{"EOL", `[\n\r]+`},
-	{"Keyword", `name|title|description|url|version|summary|details|code`},
 	{"Aloe", `@aloe`},
 	{"String", `([a-zA-Z_0-9/.//:,-/'])\w*`},
 	{"Whitespace", `[ \t]+`},

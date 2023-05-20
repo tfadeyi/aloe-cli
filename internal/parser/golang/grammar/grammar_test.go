@@ -54,5 +54,4 @@ func TestInfoGrammar(t *testing.T) {
 		_, err := EvalInfo(`please stop writing bad code`)
 		require.ErrorIs(t, err, ErrParseSource)
 	})
-
 }

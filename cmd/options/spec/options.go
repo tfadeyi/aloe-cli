@@ -36,9 +36,9 @@ func (o *Options) Complete() error {
 	for i, format := range o.Formats {
 		cFormat := strings.ToLower(strings.TrimSpace(format))
 		if !generate.IsValidOutputFormat(cFormat) {
-			//@aloe code invalid_output_format
-			//@aloe title invalid_output_format
-			//@aloe summary the output format passed to --format was invalid, valid: json,yaml
+			// @aloe code invalid_output_format
+			// @aloe title invalid_output_format
+			// @aloe summary the output format passed to --format was invalid, valid: json,yaml
 			err := errors.Errorf("the output format given %q is not valid", format)
 			return errhandler.DefaultOrDie().Error(err, "invalid_output_format")
 		}

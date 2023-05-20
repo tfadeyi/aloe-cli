@@ -13,7 +13,7 @@ import (
 
 	"github.com/juju/errors"
 	"github.com/tfadeyi/go-aloe/pkg/api"
-	"gopkg.in/yaml.v3"
+	yaml "gopkg.in/yaml.v3"
 )
 
 //go:embed templates/markdown/error.md.tmpl
@@ -25,7 +25,6 @@ var applicationInfoMarkdownTmpl string
 // defaultOutputFile is the default filename for the output file
 const defaultOutputFile = "default.aloe"
 
-// ErrUnsupportedFormat
 var ErrUnsupportedFormat = errors.New("the specification is in an invalid format")
 
 func IsValidOutputFormat(format string) bool {
@@ -63,13 +62,15 @@ func WriteSpecification(spec *api.Application, stdout bool, formats ...string) e
 		case "markdown":
 			files, err = getMarkdownFromSpec(spec)
 		default:
-			return ErrUnsupportedFormat
+			err = ErrUnsupportedFormat
 		}
 		if err != nil {
 			return err
 		}
 
-		writeAll(stdout, files)
+		if err := writeAll(stdout, files); err != nil {
+			return err
+		}
 	}
 
 	return nil
@@ -86,7 +87,7 @@ func cleanAll(applicationName string, formats ...string) error {
 				// delete spec file
 				err = os.RemoveAll(applicationName)
 				if err != nil {
-					return errors.Annotatef(err, "could not delete existing markdown directory", applicationName)
+					return errors.Annotate(err, "could not delete existing markdown directory")
 				}
 			}
 			continue
@@ -97,7 +98,7 @@ func cleanAll(applicationName string, formats ...string) error {
 			// delete spec file
 			err = os.RemoveAll(file)
 			if err != nil {
-				return errors.Annotatef(err, "could not delete existing file %q", file)
+				return errors.Annotate(err, "could not delete existing file")
 			}
 		}
 	}
@@ -116,7 +117,10 @@ func writeAll(stdout bool, files map[string][]byte) error {
 
 		// decide which writer to use to print the application spec
 		if !stdout {
-			w, err = os.OpenFile(path, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0755)
+			w, err = os.OpenFile(path, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0644)
+			if err != nil {
+				return err
+			}
 		}
 		// write to writer
 		_, err = w.Write(body)
