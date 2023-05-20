@@ -108,13 +108,3 @@ signs:
       - "--output-signature=${signature}"
       - "--yes" # needed on cosign 2.0.0+
     artifacts: checksum
-
-# the image signing doesn't seem to work when using ko to build the image
-#docker_signs:
-#  - cmd: cosign
-#    args:
-#      - "sign"
-#      - "ghcr.io/tfadeyi/auth0-simple-exporter@${digest}"
-#      - "--yes"
-#    artifacts: all
-#    output: true
