@@ -134,7 +134,7 @@ func writeAll(stdout bool, files map[string][]byte) error {
 
 func getMarkdownFromSpec(spec *api.Application) (map[string][]byte, error) {
 	files := make(map[string][]byte)
-	root := fmt.Sprintf("./%s/info.md", spec.Name)
+	root := fmt.Sprintf("./%s/info.md", "docs")
 	// parse application general information
 	tmpl, err := template.New(spec.Name).Parse(applicationInfoMarkdownTmpl)
 	if err != nil {
@@ -159,7 +159,7 @@ func getMarkdownFromSpec(spec *api.Application) (map[string][]byte, error) {
 		if err != nil {
 			return nil, err
 		}
-		path := fmt.Sprintf("./%s/errors_definitions/%s.md", spec.Name, code)
+		path := fmt.Sprintf("./%s/errors_definitions/%s.md", "docs", code)
 		if _, ok := files[path]; !ok {
 			files[path] = buf.Bytes()
 		}

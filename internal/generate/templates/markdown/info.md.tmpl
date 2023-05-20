@@ -2,9 +2,9 @@
 title: {{ .Name }}
 ---
 
-## {{ .Title }}
+## {{ .Name }}
 
-**Application**: {{ .Title }}
+**Application**: {{ .Name }}
 **Version**: {{ .Version }}
 
 ### Description
@@ -13,3 +13,6 @@ title: {{ .Name }}
 
 ### Error definitions
 
+{{ range $key, $value := .ErrorsDefinitions }}
+  * **{{ $key }}**: {{ $value.Summary }}.
+{{ end }}

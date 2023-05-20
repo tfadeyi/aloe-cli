@@ -11,8 +11,8 @@ import (
 )
 
 // @aloe name aloe_cli
-// @aloe url https://github.com/tfadeyi
-// @aloe version v2
+// @aloe url https://tfadeyi.github.io
+// @aloe version v0.0.1
 // @aloe description Aloe CLI application
 
 func main() {
