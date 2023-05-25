@@ -10,7 +10,7 @@ import (
 	"github.com/tfadeyi/aloe-cli/internal/logging"
 )
 
-// @aloe name aloe_cli
+// @aloe name aloe-cli
 // @aloe url https://tfadeyi.github.io
 // @aloe version v0.0.1
 // @aloe description Aloe CLI application

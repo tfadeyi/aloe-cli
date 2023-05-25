@@ -59,7 +59,7 @@ func (g InfoGrammar) getAttribute(attribute string) (string, bool) {
 var lexerDefinition = lexer.MustSimple([]lexer.SimpleRule{
 	{"EOL", `[\n\r]+`},
 	{"Aloe", `@aloe`},
-	{"String", `([a-zA-Z_0-9/.//:,-/'])\w*`},
+	{"String", `([a-zA-Z_0-9/.//:,-/'\(\)])\w*`},
 	{"Whitespace", `[ \t]+`},
 })
 

@@ -14,5 +14,5 @@ title: {{ .Name }}
 ### Error definitions
 
 {{ range $key, $value := .ErrorsDefinitions }}
-  * **{{ $key }}**: {{ $value.Summary }}.
+  * [**{{ $key }}**](./errors_definitions/{{ $key }}): {{ $value.Summary }}
 {{ end }}

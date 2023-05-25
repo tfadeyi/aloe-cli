@@ -4,9 +4,6 @@ schema = 3
   [mod."github.com/alecthomas/participle/v2"]
     version = "v2.0.0"
     hash = "sha256-kAG4SA5c2tEloiKhI89ZCEu/nH9rsepQMndrR4zwCYc="
-  [mod."github.com/alecthomas/repr"]
-    version = "v0.2.0"
-    hash = "sha256-vBRu5jLdJqlDGVflK0EZEUe40G+KAqI5P5fteHZxAvc="
   [mod."github.com/davecgh/go-spew"]
     version = "v1.1.1"
     hash = "sha256-nhzSUrE1fCkN0+RL04N4h8jWmRFPPPWbCuDc7Ss0akI="
@@ -38,8 +35,8 @@ schema = 3
     version = "v1.8.2"
     hash = "sha256-n32PGyJL6VLtwOGEbS0lFchxunNU9nlol7OSEZlrKUM="
   [mod."github.com/tfadeyi/go-aloe"]
-    version = "v0.0.0-20230520184128-c77344038702"
-    hash = "sha256-oXLfc07FxOqzEAXjZLlPJX5bcxmDoSv0jUyqnzAo0Lc="
+    version = "v0.0.2"
+    hash = "sha256-ysaV7IF6m9p2MYzy15YfCLnpgliSzhj1fDxCdEA1T7g="
   [mod."gopkg.in/yaml.v3"]
     version = "v3.0.1"
     hash = "sha256-FqL9TKYJ0XkNwJFnq9j0VvJ5ZUU1RvH/52h/f5bkYAU="
