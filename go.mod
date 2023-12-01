@@ -3,7 +3,7 @@ module github.com/tfadeyi/aloe-cli
 go 1.19
 
 require (
-	github.com/alecthomas/participle/v2 v2.0.0
+	github.com/alecthomas/participle/v2 v2.1.1
 	github.com/go-logr/logr v1.2.4
 	github.com/go-logr/stdr v1.2.2
 	github.com/juju/errors v1.0.0
