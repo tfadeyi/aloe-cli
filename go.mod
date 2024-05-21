@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/alecthomas/participle/v2 v2.0.0
-	github.com/go-logr/logr v1.2.4
+	github.com/go-logr/logr v1.4.2
 	github.com/go-logr/stdr v1.2.2
 	github.com/juju/errors v1.0.0
 	github.com/spf13/cobra v1.7.0
