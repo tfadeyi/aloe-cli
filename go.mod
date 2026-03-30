@@ -7,8 +7,8 @@ require (
 	github.com/go-logr/logr v1.2.4
 	github.com/go-logr/stdr v1.2.2
 	github.com/juju/errors v1.0.0
-	github.com/spf13/cobra v1.7.0
-	github.com/spf13/pflag v1.0.5
+	github.com/spf13/cobra v1.10.2
+	github.com/spf13/pflag v1.0.9
 	github.com/stretchr/testify v1.8.4
 	github.com/tfadeyi/go-aloe v0.0.2
 	gopkg.in/yaml.v3 v3.0.1
