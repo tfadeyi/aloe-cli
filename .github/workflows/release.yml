@@ -36,7 +36,7 @@ jobs:
         run: make licenses
 
       - name: Login to ghcr.io
-        uses: docker/login-action@40891eba8c2bcd1309b07ba8b11232f313e86779
+        uses: docker/login-action@ba754150c9dbbaa912ae0ac3cfba43f84195cef2
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
